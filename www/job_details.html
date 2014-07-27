@@ -1,0 +1,48 @@
+<html>
+<body>
+<?php
+$con=mysql_connect("localhost","root","cfg2014!");
+echo mysql_error($con);
+if(!$con)
+echo "NO CONNECTION WITH DATABASE...";
+mysql_select_db("CFG2014");
+echo mysql_error($con);
+$sql=mysql_query("select * from job");
+if(!$sql)
+	echo "error in retrieving...!";
+print "<table border=5 cellpadding=3 cellspacing=3 width=100%><br/>";
+while($info = mysql_fetch_array($sql))
+ {
+ print "<tr>"; 
+ print "<th>Position:</th> <td>".$info['position'] "</td> "; 
+ print "</tr>";
+ print "<tr>"; 
+ print "<th>Code Work Area:</th> <td>".$info['work'] "</td> "; 
+ print "</tr>";
+ print "<tr>"; 
+ print "<th>Age:</th> <td>".$info['age'] "</td> "; 
+ print "</tr>";
+ print "<tr>"; 
+ print "<th>Gender:</th> <td>".$info['gender'] "</td> "; 
+ print "</tr>";
+ print "<tr>"; 
+ print "<th>Location:</th> <td>".$info['location'] "</td> "; 
+ print "</tr>";
+ print "<tr>"; 
+ print "<th>Language:</th> <td>".$info['language'] "</td> "; 
+ print "</tr>";
+ print "<tr>"; 
+ print "<th>Job Profile:</th> <td>".$info['profile'] "</td> "; 
+ print "</tr>";
+ print "<tr>"; 
+ print "<th>Mandatory Terms:</th> <td>".$info['terms'] "</td> "; 
+ print "</tr>";
+ print "<tr>"; 
+ print "<th>Salary Range:</th> <td>".$info['salary'] "</td> "; 
+ print "</tr>";
+ } 
+ print "</table>";
+ mysql_close($con);
+ ?>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+ <?php
+$con=mysql_connect("localhost","root","cfg2014!");
+echo mysql_error($con);
+if(!$con) {
+echo "NO CONNECTION WITH DATABASE..."; 
+}
+mysql_select_db("CFG2014");
+$sql=mysql_query("SELECT * from discuss ");
+if(!$sql) {
+	echo "No Information available.... !";
+}	
+
+$info = mysql_fetch_assoc($sql);
+while($info=mysql_fetch_assoc($sql))
+{
+ echo $info["queries"];
+mysql_close($con);
+ ?>
+ </body>
+ </html>
